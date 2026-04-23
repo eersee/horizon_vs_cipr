@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0A1C2F 0%, #0B2B40 100%);
+    color: #E0E0E0;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.app-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.main-slide {
+    background: rgba(26, 42, 58, 0.8);
+    backdrop-filter: blur(4px);
+    border-radius: 2rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 35px -10px rgba(0,0,0,0.3);
+}
+
+.slide-header {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00B4D8;
+    margin-bottom: 0.5rem;
+}
+
+.slide-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.slide-content {
+    line-height: 1.6;
+}
+
+.main-slide img {
+    max-width: 100%;
+    max-height: 70vh;
+    width: auto;
+    object-fit: contain;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: block;
+    margin: 0 auto;
+}
+
+.slide-content ul, .slide-content p {
+    margin-top: 0.5rem;
+}
+
+.slide-content li {
+    margin-left: 1.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.tiles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+}
+
+.tile {
+    background: rgba(26, 42, 58, 0.7);
+    backdrop-filter: blur(4px);
+    border-radius: 1.2rem;
+    padding: 1.2rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 1px solid rgba(255,255,255,0.08);
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #f0f0f0;
+}
+
+.tile:hover {
+    transform: translateY(-5px);
+    background: rgba(26, 42, 58, 0.95);
+    border-color: #00B4D8;
+    box-shadow: 0 12px 20px -8px rgba(0,0,0,0.4);
+}
+
+.settings-icon {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #1A2A3A;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: 0.2s;
+    z-index: 10;
+}
+.settings-icon:hover {
+    transform: rotate(30deg);
+    background: #00B4D8;
+}
+
+.settings-panel {
+    position: fixed;
+    bottom: 6rem;
+    right: 2rem;
+    background: #1A2A3A;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    width: 240px;
+    border: 1px solid #2C3E50;
+    display: none;
+    z-index: 20;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+.settings-panel.show {
+    display: block;
+}
+.settings-panel h3 {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    color: #00B4D8;
+}
+.settings-panel label {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+}
+.settings-panel input {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background: #0F212E;
+    border-radius: 2rem;
+    width: 90%;
+    max-width: 1200px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 2rem;
+    border: 1px solid #2C3E50;
+    position: relative;
+}
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #aaa;
+}
+.close:hover {
+    color: #fff;
+}
+.modal-header {
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    color: #00B4D8;
+}
+
+.modal-content img {
+    max-width: 100%;
+    width: auto;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    display: block;
+    margin: 0 auto;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.carousel-controls button {
+    background: #1A2A3A;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.carousel-controls button:hover {
+    background: #00B4D8;
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 1rem;
+    }
+    .tiles-grid {
+        grid-template-columns: 1fr;
+    }
+    .modal-content {
+        width: 95%;
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Горизонт-ВС | Интерактивная презентация</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <div class="settings-icon" id="settingsToggle">⚙️</div>
+        <div class="settings-panel" id="settingsPanel">
+            <h3>Настройки показа</h3>
+            <label>Интервал между слайдами (сек)</label>
+            <input type="range" id="intervalSlider" min="1" max="10" step="0.5" value="3">
+            <span id="intervalValue">3.0</span> сек
+        </div>
+
+        <div class="main-slide" id="mainSlide">
+            <div class="slide-header"></div>
+            <div class="slide-title" id="mainSlideTitle">Экосистема «Горизонт-ВС»</div>
+            <div class="slide-content" id="mainSlideContent"></div>
+        </div>
+
+        <div class="tiles-grid">
+            <div class="tile" data-section-start="4">Высокая доступность виртуальной инфраструктуры</div>
+            <div class="tile" data-section-start="6">Живая миграция ВМ между серверами</div>
+            <div class="tile" data-section-start="9">Affinity и Anti-Affinity</div>
+            <div class="tile" data-section-start="15">Подключение внешних хранилищ данных NFS, iSCSI, FC, Ceph</div>
+            <div class="tile" data-section-start="17">Миграция и клонирование данных ВМ между дисковыми разделами без прерывания доступа к ВМ (SDRS)</div>
+            
+            <div class="tile" data-section-start="22">Добавление ресурсов работающей ВМ без необходимости ее выключения</div>
+            <div class="tile" data-section-start="25">Снэпшоты ВМ</div>
+            <div class="tile" data-section-start="29">Поддержка Disaster Recovery</div>
+            <div class="tile" data-section-start="31">Поддержка ролевой модели</div>
+            <div class="tile" data-section-start="37">Аудит и статистика</div>
+            <div class="tile" data-section-start="43">Полный и инкрементальный бекап ВМ</div>
+            <div class="tile" data-section-start="47">Импорт ВМ</div>
+            <div class="tile" data-section-start="50">Восстановление ВМ из копии</div>
+            <div class="tile" data-section-start="53">Сохранение СГУ</div>
+            <div class="tile" data-section-start="56">ОТЧЕТНОСТЬ</div>
+            <div class="tile" data-section-start="59">ПУЛЫ рабочих столов</div>
+            <div class="tile" data-section-start="63">Туннелирование</div>
+            <div class="tile" data-section-start="66">Разграничение прав доступа</div>
+            <div class="tile" data-section-start="69">ТОНКИЕ КЛИЕНТЫ ДЛЯ РАЗНЫХ ОС</div>
+	    <div class="tile" data-section-start="20">Контакты</div>
+        </div>
+    </div>
+
+    <div id="carouselModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <span id="slideCounter"></span>
+            </div>
+            <div id="carouselSlideTitle" class="slide-title"></div>
+            <div id="carouselSlideContent" class="slide-content"></div>
+            <div class="carousel-controls">
+                <button id="prevSlideBtn">◀ Предыдущий</button>
+                <button id="playPauseBtn">⏸ Пауза</button>
+                <button id="nextSlideBtn">Следующий ▶</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        window.tilesData = {{ tiles|tojson }};
+        window.sectionsData = {{ sections|tojson }};
+    </script>
+</body>
+</html>
